@@ -9,14 +9,14 @@
 
 table {
   width: 100%;
-  margin-bottom: @baseline;
   padding: 0;
-  font-size: @basefont;
+  margin-bottom: @baseLineHeight;
+  font-size: @baseFontSize;
   border-collapse: collapse;
   th,
   td {
     padding: 10px 10px 9px;
-    line-height: @baseline;
+    line-height: @baseLineHeight;
     text-align: left;
   }
   th {
@@ -38,6 +38,7 @@ table {
 
 // CONDENSED VERSION
 // -----------------
+
 .condensed-table {
   th,
   td {
@@ -59,12 +60,12 @@ table {
   th + td {
     border-left: 1px solid #ddd;
   }
-  thead tr:first-child th:first-child,
-  tbody tr:first-child td:first-child {
+  thead:first-child tr:first-child th:first-child,
+  tbody:first-child tr:first-child td:first-child {
     .border-radius(4px 0 0 0);
   }
-  thead tr:first-child th:last-child,
-  tbody tr:first-child td:last-child {
+  thead:first-child tr:first-child th:last-child,
+  tbody:first-child tr:first-child td:last-child {
     .border-radius(0 4px 0 0);
   }
   tbody tr:last-child td:first-child {
@@ -76,7 +77,6 @@ table {
 }
 
 
-// TABLE CELL SIZES
 // ----------------
 
 // This is a duplication of the main grid .columns() mixin, but subtracts 20px to account for input padding and border
@@ -108,7 +108,7 @@ table {
 // --------------
 
 // Default zebra-stripe styles (alternating gray and transparent backgrounds)
-.zebra-striped {
+.striped-table {
   tbody {
     tr:nth-child(odd) td,
     tr:nth-child(odd) th {
@@ -121,37 +121,41 @@ table {
   }
 }
 
+
+// TABLESORTER
+// -----------
+
 table {
   // Tablesorting styles w/ jQuery plugin
   .header {
     cursor: pointer;
     &:after {
-      content: "";
       float: right;
       margin-top: 7px;
       border-width: 0 4px 4px;
       border-style: solid;
       border-color: #000 transparent;
+      content: "";
       visibility: hidden;
     }
   }
   // Style the sorted column headers (THs)
   .headerSortUp,
   .headerSortDown {
-    background-color: rgba(141,192,219,.25);
     text-shadow: 0 1px 1px rgba(255,255,255,.75);
+    background-color: rgba(141,192,219,.25);
   }
   // Style the ascending (reverse alphabetical) column header
   .header:hover {
     &:after {
-      visibility:visible;
+      visibility: visible;
     }
   }
   // Style the descending (alphabetical) column header
   .headerSortDown,
   .headerSortDown:hover {
     &:after {
-      visibility:visible;
+      visibility: visible;
       .opacity(60);
     }
   }
