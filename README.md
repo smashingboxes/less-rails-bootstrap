@@ -1,3 +1,7 @@
+# 2.0-wip branch
+
+Use latest 2.0-wip branch of bootstrap CSS to use latest features like responsive design or vertical tabs
+
 
 # Less Rails Bootstrap
 
