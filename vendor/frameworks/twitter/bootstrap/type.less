@@ -1,6 +1,6 @@
-/* Typography.less
- * Headings, body text, lists, code, and more for a versatile and durable typography system
- * ---------------------------------------------------------------------------------------- */
+// Typography.less
+// Headings, body text, lists, code, and more for a versatile and durable typography system
+// ----------------------------------------------------------------------------------------
 
 
 // BODY TEXT
@@ -204,6 +204,11 @@ pre {
   white-space: pre;
   white-space: pre-wrap;
   word-break: break-all;
+
+  // Make prettyprint styles more spaced out for readability
+  &.prettyprint {
+    margin-bottom: @baseLineHeight;
+  }
 
   // Account for some code outputs that place code tags in pre tags
   code {

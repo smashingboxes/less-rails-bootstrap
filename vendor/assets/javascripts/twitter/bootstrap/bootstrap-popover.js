@@ -34,7 +34,9 @@
 
   Popover.prototype = $.extend({}, $.fn.twipsy.Twipsy.prototype, {
 
-    setContent: function () {
+    constructor: Popover
+
+  , setContent: function () {
       var $tip = this.tip()
         , title = this.getTitle()
         , content = this.getContent()
@@ -91,4 +93,4 @@
 
   $.fn.twipsy.rejectAttrOptions.push( 'content' )
 
-}( window.jQuery || window.ender );
+}( window.jQuery || window.ender )
