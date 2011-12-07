@@ -5,8 +5,8 @@
 //= require twitter/bootstrap/bootstrap-collapse.js
 //= require twitter/bootstrap/bootstrap-dropdown.js
 //= require twitter/bootstrap/bootstrap-modal.js
+//= require twitter/bootstrap/bootstrap-twipsy.js
 //= require twitter/bootstrap/bootstrap-popover.js
 //= require twitter/bootstrap/bootstrap-scrollspy.js
 //= require twitter/bootstrap/bootstrap-tab.js
 //= require twitter/bootstrap/bootstrap-transition.js
-//= require twitter/bootstrap/bootstrap-twipsy.js
