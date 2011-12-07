@@ -1,10 +1,12 @@
 //= require twitter/bootstrap/bootstrap-accordion.js
-//= require twitter/bootstrap/bootstrap-alerts.js
-//= require twitter/bootstrap/bootstrap-buttons.js
+//= require twitter/bootstrap/bootstrap-alert.js
+//= require twitter/bootstrap/bootstrap-button.js
+//= require twitter/bootstrap/bootstrap-carousel.js
+//= require twitter/bootstrap/bootstrap-collapse.js
 //= require twitter/bootstrap/bootstrap-dropdown.js
-//= require twitter/bootstrap/bootstrap-twipsy.js
 //= require twitter/bootstrap/bootstrap-modal.js
 //= require twitter/bootstrap/bootstrap-popover.js
 //= require twitter/bootstrap/bootstrap-scrollspy.js
-//= require twitter/bootstrap/bootstrap-tabs.js
-//= require twitter/bootstrap/bootstrap-transitions.js
+//= require twitter/bootstrap/bootstrap-tab.js
+//= require twitter/bootstrap/bootstrap-transition.js
+//= require twitter/bootstrap/bootstrap-twipsy.js
