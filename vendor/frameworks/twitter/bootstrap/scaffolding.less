@@ -12,7 +12,7 @@ body {
   font-family: @baseFontFamily;
   font-size: @baseFontSize;
   line-height: @baseLineHeight;
-  color: @grayDark;
+  color: @gray;
   background-color: @white;
 }
 
@@ -24,26 +24,34 @@ body {
 // Fluid layouts (left aligned, with sidebar, min- & max-width content)
 .fluid-container {
   position: relative;
-  min-width: 940px;
-  padding-left: 20px;
-  padding-right: 20px;
+  min-width: @siteWidth;
+  padding-left: @gridGutterWidth;
+  padding-right: @gridGutterWidth;
   .clearfix();
 }
+
 // Sidebars (left and right options)
-.fluid-sidebar-left,
-.fluid-sidebar-right {
-  width: 220px;
+.fluid-sidebar {
+  width: @fluidSidebarWidth;
+  margin: 0 20px 18px;
 }
-.fluid-sidebar-left   { float: left; }
-.fluid-sidebar-right  { float: right; }
+.sidebar-left   { padding-left: @fluidSidebarWidth + @gridGutterWidth * 2; }
+.sidebar-right  { padding-right: @fluidSidebarWidth + @gridGutterWidth * 2; }
+
+// Float the sidebars accordingly
+.sidebar-left .fluid-sidebar {
+  float: left;
+  margin-left: (@fluidSidebarWidth + @gridGutterWidth) * -1;
+}
+.sidebar-right .fluid-sidebar {
+  float: right;
+  margin-right: (@fluidSidebarWidth + @gridGutterWidth) * -1;
+}
+
 // The main content area
 .fluid-content {
-  margin-left: 240px;
-}
-// Reverse layout for sidebar on right
-.fluid-container.reverse .fluid-content {
-  margin-left: 0;
-  margin-right: 240px;
+  float: left;
+  width: 100%;
 }
 
 
@@ -52,8 +60,6 @@ body {
 
 // Links
 a {
-  font-weight: inherit;
-  line-height: inherit;
   color: @linkColor;
   text-decoration: none;
   &:hover {
@@ -62,32 +68,17 @@ a {
   }
 }
 
-// Quick floats
-.pull-right {
-  float: right;
-}
-.pull-left {
-  float: left;
-}
-
-// Toggling content
-.hide {
-  display: none;
-}
-.show {
-  display: block;
-}
-
 
 // GRID SYSTEM
 // -----------
 // To customize the grid system, bring up the variables.less file and change the column count, size, and gutter there
 .row {
-  margin-left: -@gridGutterWidth;
+  margin-left: @gridGutterWidth * -1;
   .clearfix();
 }
 
-// Find all .span# classes within .row and give them the necessary properties for grid columns (supported by all browsers back to IE7)
+// Find all .span# classes within .row and give them the necessary properties for grid columns 
+// (supported by all browsers back to IE7)
 // Credit to @dhg for the idea
 [class*="span"] {
   .gridColumn();

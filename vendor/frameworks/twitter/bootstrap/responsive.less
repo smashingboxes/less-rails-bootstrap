@@ -3,30 +3,84 @@
 // -------------------------------------------------------------
 
 
+// REPEAT VARIABLES & MIXINS
+// -------------------------
+// Required since we compile the responsive stuff separately
+
+@import "variables.less"; // Modify this for custom colors, font-sizes, etc
+@import "mixins.less";
+
+
+// RESPONSIVE CLASSES
+// ------------------
+
+// Hide from screenreaders and browsers
+// Credit: HTML5BP
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+
 // UP TO LANDSCAPE PHONE
 // ---------------------
 
 @media (max-width: 480px) {
-  // Remove width from containers
-  .container {
-    width: auto;
-    padding: 0 15px;
-  }
-  // Undo negative margin on rows
-  .row {
-    margin-left: 0;
-  }
-  // Make all columns even
-  [class*="span"] {
-    float: none;
-    display: block;
-    width: auto;
-    margin: 0;
-  }
-  // Resize modals
-  .modal {
-    width: auto;
-    margin: 0;
+
+  // Make the nav work for small devices
+  .navbar {
+    .nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 180px;
+      padding-top: 40px;
+      list-style: none;
+    }
+    .nav,
+    .nav > li:last-child a {
+      .border-radius(0 0 4px 0);
+    }
+    .nav > li {
+      float: none;
+      display: none;
+    }
+    .nav > li > a {
+      float: none;
+      background-color: #222;
+    }
+    .nav > .active {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .nav > .active > a {
+      background-color: transparent;
+    }
+    .nav > .active > a:hover {
+      background-color: #333;
+    }
+    .nav > .active > a:after {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      margin-top: 8px;
+      margin-left: 6px;
+      text-indent: -99999px;
+      vertical-align: top;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 4px solid @white;
+      .opacity(100);
+      content: "&darr;";
+    }
+    .nav:hover > li {
+      display: block;
+    }
+    .nav:hover > li > a:hover {
+      background-color: #333;
+    }
   }
 
   // Remove the horizontal form styles
@@ -49,29 +103,53 @@
     padding-left: 0;
   }
 
+  // Modals
+  .modal {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    width: auto;
+    margin: 0;
+    &.fade.in { top: auto; }
+  }
+  .modal-header .close {
+    padding: 10px;
+  }
+
 }
 
 
 // LANDSCAPE PHONE TO SMALL DESKTOP & PORTRAIT TABLET
 // --------------------------------------------------
 
-@media (min-width: 480px) and (max-width: 768px) {
+@media (max-width: 768px) {
+  
+  // Unfix the navbar
+  .navbar-fixed {
+    position: absolute;
+  }
+  .navbar-fixed .nav {
+    float: none;
+  }
+
   // Remove width from containers
   .container {
     width: auto;
-    padding: 0 10px;
+    padding: 0 20px;
   }
   // Undo negative margin on rows
   .row {
     margin-left: 0;
   }
   // Make all columns even
-  [class*="span"] {
+  .row > [class*="span"] {
     float: none;
     display: block;
     width: auto;
     margin: 0;
   }
+
 }
 
 
@@ -129,10 +207,9 @@
 
 }
 
-/*
 // LARGE DESKTOP & UP
 // ------------------
-
+/*
 @media (min-width: 1210px) {
 
   // Reset grid variables
@@ -151,6 +228,9 @@
 
   .container {
     width: @siteWidth;
+  }
+  .row {
+    margin-left: @gridGutterWidth * -1;
   }
   [class*="span"] {
     margin-left: @gridGutterWidth;
