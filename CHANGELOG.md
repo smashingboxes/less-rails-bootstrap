@@ -1,6 +1,27 @@
 CHANGELOG
 =========
 
+2.0.3, 2.0.4 - 02-03/2012
+
+* Fix IE9 background hack from bootstrap upstream.
+* Misc border-radius 0px fixes.
+
+
+2.0.2 - 02/01/2012
+
+* Change require order for tooltip.js [Rufus Post]
+
+
+2.0.1 - 01/31/2012
+
+* Package up Glyphicons and use less-rails' asset-url() helper.
+
+
+2.0.0 - 01/31/2012
+
+* Update to Twitter Bootstrap 2.0.0
+
+
 1.4.1 - 11/18/2011
 ------------------
 
